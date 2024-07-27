@@ -1,9 +1,21 @@
+// let test = L.tileLayer(`bounding_box.png`, {
+//     maxZoom: 1
+// })
+
+// let base = L.tileLayer(`assets/Helonus Map.png`, {
+//     maxZoom: 1
+// }) 
+
 let map = L.map('map', {
     crs: L.CRS.Simple,
     minZoom: -2,
     maxZoom: 1,
-    maxBoundsViscosity: 1.0
+    maxBoundsViscosity: 1.0,
+    // layers: [base, test]
 });
+
+// let layerControl = L.control.layers({"base": base}, {"box": test}).addTo(map);
+// layerControl.addBaseLayer()
 
 let bounds = [[0,0], [4764, 7680]];
 let image = L.imageOverlay('assets/Helonus Map.png', bounds).addTo(map);
