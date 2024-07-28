@@ -83,30 +83,30 @@ const REGION_BOUNDS = [
     [[3404, 6902], [3455, 7062], "Azorius"], // Right side border
     [[2903, 0], [3347, 122], "Azorius"], // Left side
     [[3175, 378], [3455, 600], "Frigid Teeth"],
-    [[3450, 393], [3795, 1199], "Kleovrend 1"], // Left main
-    [[3392, 728], [3451, 1161], "Kleovrend 1"], // Bottom border 1
-    [[3510, 1195], [3788, 1310], "Kleovrend 1"], // Bottom border 2
-    [[3568, 1308], [3788, 1421], "Kleovrend 1"], // Bottom border 3
-    [[3656, 1416], [3788, 1570], "Kleovrend 1"], // Bottom border 4
-    [[3691, 1568], [3790, 1653], "Kleovrend 1"], // Bottom border 5
-    [[3788, 787], [4045, 1659], "Kleovrend 1"], // Main
-    [[3786, 505], [3887, 796], "Kleovrend 1"], // Top border 1
-    [[3883, 651], [3948, 792], "Kleovrend 1"], // Top border 2
-    [[4036, 832], [4116, 1361], "Kleovrend 1"], // Top border 3
-    [[4106, 1160], [4391, 1356], "Kleovrend 1"], // Top border 4
-    [[3857, 1348], [4764, 1790], "Kleovrend 1"], // Right main
-    [[4105, 1782], [4764, 1915], "Kleovrend 1"], // Top right 1
-    [[4312, 1908], [4764, 2089], "Kleovrend 1"], // Top right 2
-    [[4629, 2081], [4764, 2300], "Kleovrend 1"], // Top right 3
+    [[3450, 393], [3795, 1199], "East Kleovrend"], // Left main
+    [[3392, 728], [3451, 1161], "East Kleovrend"], // Bottom border 1
+    [[3510, 1195], [3788, 1310], "East Kleovrend"], // Bottom border 2
+    [[3568, 1308], [3788, 1421], "East Kleovrend"], // Bottom border 3
+    [[3656, 1416], [3788, 1570], "East Kleovrend"], // Bottom border 4
+    [[3691, 1568], [3790, 1653], "East Kleovrend"], // Bottom border 5
+    [[3788, 787], [4045, 1659], "East Kleovrend"], // Main
+    [[3786, 505], [3887, 796], "East Kleovrend"], // Top border 1
+    [[3883, 651], [3948, 792], "East Kleovrend"], // Top border 2
+    [[4036, 832], [4116, 1361], "East Kleovrend"], // Top border 3
+    [[4106, 1160], [4391, 1356], "East Kleovrend"], // Top border 4
+    [[3857, 1348], [4764, 1790], "East Kleovrend"], // Right main
+    [[4105, 1782], [4764, 1915], "East Kleovrend"], // Top right 1
+    [[4312, 1908], [4764, 2089], "East Kleovrend"], // Top right 2
+    [[4629, 2081], [4764, 2300], "East Kleovrend"], // Top right 3
     [[3926, 1788], [4223, 1981], "Aqin"],
-    [[3527, 0], [4764, 1373], "Kleovrend 2"], // Left side
-    [[3717, 7294], [4764, 7680], "Kleovrend 2"], // Right side main right
-    [[3451, 6524], [3891, 7314], "Kleovrend 2"], // Right side islands
-    [[3888, 6527], [3924, 6557], "Kleovrend 2"], // Right side islands edge
-    [[3883, 6824], [4153, 7309], "Kleovrend 2"], // Right side left 1
-    [[4148, 6986], [4296, 7300], "Kleovrend 2"], // Right side left 2
-    [[4290, 7107], [4376, 7297], "Kleovrend 2"], // Right side left 3
-    [[4371, 7243], [4474, 7298], "Kleovrend 2"], // Right side left 4
+    [[3527, 0], [4764, 1373], "West Kleovrend"], // Left side
+    [[3717, 7294], [4764, 7680], "West Kleovrend"], // Right side main right
+    [[3451, 6524], [3891, 7314], "West Kleovrend"], // Right side islands
+    [[3888, 6527], [3924, 6557], "West Kleovrend"], // Right side islands edge
+    [[3883, 6824], [4153, 7309], "West Kleovrend"], // Right side left 1
+    [[4148, 6986], [4296, 7300], "West Kleovrend"], // Right side left 2
+    [[4290, 7107], [4376, 7297], "West Kleovrend"], // Right side left 3
+    [[4371, 7243], [4474, 7298], "West Kleovrend"], // Right side left 4
     [[4023, 6486], [4764, 7306], "Tol Kra Vulcunos"], // Main
     [[3820, 6385], [4026, 6590], "Tol Kra Vulcunos"], // Bottom left
     [[2223, 1360], [2549, 1536], "South Iridus"],
@@ -120,8 +120,8 @@ const REGION_BOUNDS = [
     [[3048, 1474], [3126, 1564], "North Iridus"], // Centre-top 2
     [[3180, 1597], [3238, 1804], "North Iridus"], // Top
     [[1738, 226], [1843, 343], "North Iridus"], // Jomil
-    [[3125, 704], [3559, 1436], "Frostbound Archipelago"], // Left
-    [[3237, 1432], [3901, 1984], "Frostbound Archipelago"], // Right
+    [[3125, 704], [3559, 1436], "East Kleovrend"], // Frostbound archipelago - Left
+    [[3237, 1432], [3901, 1984], "East Kleovrend"], // Frostbound archipelago - Right
 ];
 
 // function preloadImages(images) {
@@ -184,3 +184,25 @@ map.on('click', onMapClick);
 // for (let region of REGION_BOUNDS) {
 //     let box = L.imageOverlay(`bounding_box.png`, [region[0], region[1]]).addTo(map);
 // }
+
+
+const registerServiceWorker = async () => {
+    if ("serviceWorker" in navigator) {
+        try {
+            const registration = await navigator.serviceWorker.register("/caching.js", {
+              scope: "/",
+            });
+            if (registration.installing) {
+              console.log("Service worker installing");
+            } else if (registration.waiting) {
+              console.log("Service worker installed");
+            } else if (registration.active) {
+              console.log("Service worker active");
+            }
+          } catch (error) {
+            console.error(`Registration failed with ${error}`);
+          }
+    }
+}
+
+// registerServiceWorker();
