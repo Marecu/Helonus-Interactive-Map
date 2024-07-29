@@ -6,18 +6,21 @@
 //     maxZoom: 1
 // }) 
 
+let bounds = [[0,0], [4764, 7680]];
+
 let map = L.map('map', {
     crs: L.CRS.Simple,
     minZoom: -2,
     maxZoom: 1,
     maxBoundsViscosity: 1.0,
+    maxBounds: bounds,
     // layers: [base, test]
 });
 
 // let layerControl = L.control.layers({"base": base}, {"box": test}).addTo(map);
 // layerControl.addBaseLayer()
 
-let bounds = [[0,0], [4764, 7680]];
+
 let image = L.imageOverlay('assets/Helonus Map.png', bounds).addTo(map);
 
 map.fitBounds(bounds);
